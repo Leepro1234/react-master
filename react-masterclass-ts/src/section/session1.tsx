@@ -4,7 +4,6 @@ import styled, { keyframes } from 'styled-components'
 function App() {
   const [value, setValue] = useState('')
   const onChange = (event: React.FormEvent<HTMLInputElement>) => {
-    console.log(event.currentTarget.value)
     const {
       currentTarget: { value },
     } = event
@@ -13,7 +12,6 @@ function App() {
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    console.log('hello', value)
   }
   return (
     <div>
