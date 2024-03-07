@@ -52,3 +52,7 @@ https://flatuicolors.com/
 - v6 react-router-dom 설명
 
 https://ui.dev/react-router-nested-routes/
+
+react-query : 캐싱되는 주기에 대한 내용 공부하기 (옵션)
+
+https://velog.io/@kandy1002/React-Query-%ED%91%B9-%EC%B0%8D%EC%96%B4%EB%A8%B9%EA%B8%B0
