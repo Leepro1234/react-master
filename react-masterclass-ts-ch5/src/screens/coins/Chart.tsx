@@ -21,6 +21,7 @@ function Chart() {
     queryKey: ['ohlcv', coinId],
     queryFn: () => fetchCoinHistory(coinId!),
   })
+  console.log('1', isLoading)
   return (
     <div>
       {isLoading ? (

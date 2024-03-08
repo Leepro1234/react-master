@@ -55,17 +55,8 @@ function Coins() {
     queryKey: ['allCoins'],
     queryFn: fetchCoins,
   })
-  // const [coins, setcoins] = useState<CoinInterface[]>([])
-  // const [loading, setLoading] = useState(true)
-  // useEffect(() => {
-  //   ;(async () => {
-  //     const response = await fetch('https://api.coinpaprika.com/v1/coins')
-  //     const json = await response.json()
-  //     setcoins(json.slice(0, 100))
-  //     setLoading(false)
-  //   })()
-  // }, [])
 
+  console.log('Coinss!', isLoading)
   return (
     <div>
       <Helmet>

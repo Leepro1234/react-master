@@ -5,6 +5,7 @@ import { ICoin } from './screens/coins/coins'
 const BASE_URL = `https://api.coinpaprika.com/v1`
 
 export async function fetchCoins(): Promise<ICoin[]> {
+  console.log('call coins list!')
   const response = await fetch(`${BASE_URL}/coins`)
   const data = await response.json()
   return data.slice(0, 100) as ICoin[]
