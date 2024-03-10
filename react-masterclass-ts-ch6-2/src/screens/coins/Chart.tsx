@@ -2,6 +2,8 @@ import { useQuery } from '@tanstack/react-query'
 import { useOutletContext } from 'react-router'
 import { fetchCoinHistory } from '../../api'
 import ApexChart from 'react-apexcharts'
+import { useRecoilValue } from 'recoil'
+import { isDarkAtom } from '../../atoms'
 export interface IHistorycal {
   time_open: number
   time_close: number
@@ -15,12 +17,21 @@ export interface IHistorycal {
 interface IChartInfo {
   coinId: string
 }
+
+interface IIsDark {
+  isDark: boolean
+}
+
 function Chart() {
+  const isDark = useRecoilValue(isDarkAtom)
+
   const { coinId } = useOutletContext<IChartInfo>()
   const { isLoading, data: historyData } = useQuery<IHistorycal[]>({
     queryKey: ['ohlcv', coinId],
     queryFn: () => fetchCoinHistory(coinId!),
   })
+
+  console.log(historyData)
   return (
     <div>
       {isLoading ? (
@@ -36,7 +47,7 @@ function Chart() {
           ]}
           options={{
             theme: {
-              mode: 'dark',
+              mode: isDark ? 'dark' : 'light',
             },
             chart: {
               height: 500,

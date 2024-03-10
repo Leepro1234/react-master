@@ -15,12 +15,20 @@ export interface IHistorycal {
 interface IChartInfo {
   coinId: string
 }
+
+interface IIsDark {
+  isDark: boolean
+}
+
 function Chart() {
+  const { isDark }: IIsDark = useOutletContext()
   const { coinId } = useOutletContext<IChartInfo>()
   const { isLoading, data: historyData } = useQuery<IHistorycal[]>({
     queryKey: ['ohlcv', coinId],
     queryFn: () => fetchCoinHistory(coinId!),
   })
+
+  console.log('isDark3 =', isDark)
   return (
     <div>
       {isLoading ? (
@@ -36,7 +44,7 @@ function Chart() {
           ]}
           options={{
             theme: {
-              mode: 'dark',
+              mode: isDark ? 'dark' : 'light',
             },
             chart: {
               height: 500,
