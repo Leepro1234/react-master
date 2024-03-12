@@ -26,3 +26,5 @@ combineTargetFor: DraggableId | null | undefined;
 // What type of movement is being done: 'FLUID' or 'SNAP'
 mode: MovementMode | null | undefined;
 }
+
+ref : react 코드를 이용해 HTML요소를 지정하고 가져올 수 있는 방법
